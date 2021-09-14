@@ -1,0 +1,21 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var propertyControler_1 = __importDefault(require("./controllers/propertyControler"));
+var addresControle_1 = __importDefault(require("./controllers/addresControle"));
+var querryControle_1 = __importDefault(require("./controllers/querryControle"));
+var routes = (0, express_1.Router)();
+routes.get('/properties', propertyControler_1.default.get);
+routes.post('/properties', propertyControler_1.default.create);
+routes.put('/properties', propertyControler_1.default.update);
+routes.delete('/properties', propertyControler_1.default.delete);
+routes.get('/addres', addresControle_1.default.get);
+routes.post('/addres', addresControle_1.default.create);
+routes.put('/addres', addresControle_1.default.update);
+routes.delete('/addres', addresControle_1.default.delete);
+routes.get('/querry/addres', querryControle_1.default.addres);
+routes.get('/querry/property', querryControle_1.default.property);
+exports.default = routes;
